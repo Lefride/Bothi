@@ -1,4 +1,5 @@
 import discord
+import random
 from discord.ext import commands
 
 
@@ -6,9 +7,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-token = 'your token :)'
-
-w
+token = 'token de tu bot :)'
 
 @bot.event
 async def on_ready():
@@ -17,5 +16,14 @@ async def on_ready():
 @bot.command()
 async def hello(ctx):
     await ctx.send(f"hola soy: {bot.user}")
+
+@bot.command() 
+async def fernan(ctx):
+    await ctx.send(f"https://scontent.fppn1-1.fna.fbcdn.net/v/t39.30808-6/296385881_408168024741287_3705591193609066014_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGVfUnHKft35OcqkdCtBKry2Si6Xy0nFt3ZKLpfLScW3U5ZsbBpyglT-LUDPkrojjBcC18PrclmS5WRbyxHvUZ8&_nc_ohc=-cRym2WjUrUQ7kNvgFwG4qL&_nc_ht=scontent.fppn1-1.fna&oh=00_AYBJkDx4vR9wFyoEvseaLa6BQETtux0R7GaGFrK5Y7QESA&oe=669F860C")
+
+@bot.command()
+async def helpp(ctx):
+    await ctx.send(f"¡Hola! Mis comandos son: hello, fernan, help, espero ayude ;-;")
+
 
 bot.run(token)
