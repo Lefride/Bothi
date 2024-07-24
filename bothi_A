@@ -1,0 +1,50 @@
+import discord
+import random
+from discord.ext import commands
+import os
+
+
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='!', intents=intents)
+
+token = 'your token :)'
+
+@bot.event
+async def on_ready():
+    print(f"¡saludos{bot.user}!")
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f"hola soy: {bot.user}")
+
+@bot.command() 
+async def fernan(ctx):
+    await ctx.send(f"https://pbs.twimg.com/media/ET7GjM6X0AEx3LV?format=jpg&name=900x900")
+
+@bot.command()
+async def helpp(ctx):
+    await ctx.send(f"¡Hola! Mis comandos son: hello, fernan, help, espero ayude ;-;")
+
+@bot.command(name = "meme")
+async def meme(ctx):
+    with open("memes/xd.jpg", "rb") as f:
+        picture = discord.File(f)
+    await ctx.send(file = picture)
+
+@bot.command(name = "momos")
+async def meme(ctx):
+    img_mem = random.choice(os.listdir("memes"))
+    with open(f"memes/{img_mem}", "rb") as f:
+        picture = discord.File(f)
+    await ctx.send(file = picture)
+
+@bot.command(name = "amomo")
+async def meme(ctx):
+    img_amem = random.choice(os.listdir("animals_mem"))
+    with open(f"animals_mem/{img_amem}", "rb") as f:
+        picture = discord.File(f)
+    await ctx.send(file = picture)
+    
+
+bot.run(token)
